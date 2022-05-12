@@ -67,7 +67,7 @@ function loopGetData(total) {
         if (index < maxCount) {
           setTimeout(function () {
             loop();
-          }, 500);
+          }, 10);
         }
         else {
           changeTitle();

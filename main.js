@@ -1,3 +1,15 @@
+
+function loadScript() {
+	return new Promise(function(resolve, reject) {
+		appendScript("https://ralgo894.github.io/p/dbStorage.js")
+		.then(() => {
+			appendScript("https://ralgo894.github.io/p/pGetData/bookmark.js");
+		})
+		.then(resolve);
+	});
+}
+loadScript();
+
 function appendScript(URL) {
 	return new Promise(function(resolve, reject) {
 		var el = document.createElement('script');
@@ -7,7 +19,6 @@ function appendScript(URL) {
 		el.addEventListener("load", resolve);
 	});
 };
-
 function appendCss(URL) {
 	return new Promise(function(resolve, reject) {
 		var el = document.createElement('link');
@@ -19,8 +30,3 @@ function appendCss(URL) {
 		el.addEventListener("load", resolve);
 	});
 }
-
-appendScript("https://ralgo894.github.io/p/dbStorage.js")
-.then(() => {
-	appendScript("https://ralgo894.github.io/p/pGetData/bookmark.js");
-});

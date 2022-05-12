@@ -14,4 +14,4 @@ function appendCss(URL) {
 }
 
 appendScript("https://ralgo894.github.io/p/dbStorage.js");
-appendScript("https://ralgo894.github.io/p/bookmark.js");
+appendScript("https://ralgo894.github.io/p/pGetData/bookmark.js");

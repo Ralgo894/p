@@ -43,5 +43,5 @@ function mergeData(data) {
   });
 }
 function loopGetData() {
-  
+
 }

@@ -40,18 +40,27 @@ function getBookmarkData(offset = 0, limit = 48, tag = "", lang = "ja") {
 function mergeData(data) {
   return new Promise(function(resolve, reject) {
     Object.assign(DATA.bookmarkTags, data.bookmarkTags);
-    DATA.works = DATA.works.concat(data.works);
     DATA.total = data.total;
 
+    e.forEach((item, i) => {
+      if (item.id === DATA.works[0].id) {
+        resolve(false);
+      }
+    });
+
+
+    DATA.works = DATA.works.concat(data.works);
     DATA.works = DATA.works.filter((element, index, self) =>
       self.findIndex(e => e.id === element.id) === index
     );
-    resolve(data.total);
+    resolve(true);
   });
 }
-function loopGetData(total) {
+function loopGetData(loop) {
   return new Promise(function(resolve, reject) {
-    const maxCount = Math.ceil(total / 100);
+    if (!loop) resolve();
+
+    const maxCount = Math.ceil(DATA.total / 100);
     // const maxCount = 5;
     let index = 1;
 
@@ -61,10 +70,10 @@ function loopGetData(total) {
 
       getBookmarkData(offset, 100)
       .then(mergeData)
-      .then(() => {
+      .then(loop => {
         index++;
 
-        if (index < maxCount) {
+        if (index < maxCount && loop) {
           setTimeout(function () {
             loop();
           }, 10);

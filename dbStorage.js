@@ -403,3 +403,17 @@
   _global.dbStorage = dbStorage;
 
 })(window);
+
+function saveToDB(key, value) {
+  return new Promise(function(resolve) {
+    dbStorage.add(key, value, resolve);
+  });
+}
+
+function loadToDB(key) {
+  return new Promise(function(resolve, reject) {
+    dbStorage.get(key, d => {
+      resolve(d);
+    });
+  });
+}

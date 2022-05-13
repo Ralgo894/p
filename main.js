@@ -1,12 +1,9 @@
 
 function loadScript() {
-	return new Promise(function(resolve, reject) {
-		appendScript("https://ralgo894.github.io/p/dbStorage.js")
-		.then(() => {
-			appendScript("https://ralgo894.github.io/p/pGetData/bookmark.js");
-		})
-		.then(resolve);
-	});
+	return Promise.resolve()
+	.then(appendScript.bind(null, "https://ralgo894.github.io/p/dbStorage.js"))
+	.then(appendScript.bind(null, "https://ralgo894.github.io/p/pGetData/bookmark.js"));
+	.then(appendScript.bind(null, "https://ralgo894.github.io/p/pSlideShow/setup.js"));
 }
 loadScript();
 

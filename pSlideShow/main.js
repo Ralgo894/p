@@ -8,6 +8,11 @@ var imageIndex = 6;
 
 var works = [];
 
+loadToDB("P_BookmarkData")
+.then(e => {
+  works = JSON.parse(e).works;
+})
+
 document.body.addEventListener("click", () => {
   imageIndex++;
   if (imageIndex >= works.length) imageIndex = 0;

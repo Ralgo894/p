@@ -11,7 +11,7 @@ function main() {
   getBookmarkData(0, 100)
   .then(mergeData)
   .then(loopGetData)
-  .then(saveToLocalStorage)
+  .then(saveToDB.bind(null, "P_BookmarkData"))
   .then(() => {
     console.log(DATA);
     alert("完了");
@@ -76,11 +76,6 @@ function loopGetData(total) {
       })
     };
     loop();
-  });
-}
-function saveToLocalStorage(dataStr) {
-  return new Promise(function(resolve) {
-    dbStorage.add('P_BookmarkData', dataStr, resolve);
   });
 }
 

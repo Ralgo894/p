@@ -2,7 +2,7 @@
 function loadScript() {
 	return Promise.resolve()
 	.then(appendScript.bind(null, "https://ralgo894.github.io/p/dbStorage.js"))
-	.then(appendScript.bind(null, "https://ralgo894.github.io/p/pGetData/bookmark.js"));
+	.then(appendScript.bind(null, "https://ralgo894.github.io/p/pGetData/bookmark.js"))
 	.then(appendScript.bind(null, "https://ralgo894.github.io/p/pSlideShow/setup.js"));
 }
 loadScript();

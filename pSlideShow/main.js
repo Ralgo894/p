@@ -4,7 +4,7 @@ var title = document.querySelector('.textContainer h1');
 var userName = document.querySelector('.textContainer h2');
 var tagContainer = document.querySelector('.tagContainer');
 
-var imageIndex = 6;
+var imageIndex = 0;
 
 var works = [];
 
@@ -17,7 +17,9 @@ document.body.addEventListener("click", () => {
   imageIndex++;
   if (imageIndex >= works.length) imageIndex = 0;
 
-  if (works.illustType != 0) return;
+  console.log();
+
+  if (works[imageIndex].illustType != 0) return;
 
   var baseUrl = works[imageIndex].url.replace(/^.*?(img\/\d{4}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d{2}\/\d+).*?$/, "https://i.pximg.net/img-original/$1_p0");
   var jpg = new Image();
